@@ -5,10 +5,10 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
-
 app.use(
   cors({
-    origin: "*",
+    origin: "https://todolistfe-seven.vercel.app", // Replace with your frontend URL
+    credentials: true,
   })
 );
 
