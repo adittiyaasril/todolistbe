@@ -1,7 +1,6 @@
 const db = require("../../models");
 const User = db.users;
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 
 module.exports = {
   register: async (req, res) => {
@@ -51,13 +50,8 @@ module.exports = {
         return res.status(401).json({ msg: "Wrong password" });
       }
 
-      const token = jwt.sign(
-        { userId: user.id, email: user.email },
-        process.env.JWT_SECRET,
-        { expiresIn: "1h" }
-      );
-
-      res.status(200).json({ msg: "Login successful", token });
+      req.session.user = user;
+      res.status(200).json({ msg: "Login successful" });
     } catch (error) {
       console.error("Login error:", error);
       res.status(500).json({ msg: "Internal server error" });
