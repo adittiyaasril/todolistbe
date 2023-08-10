@@ -6,14 +6,12 @@ const cors = require("cors");
 
 const app = express();
 
-app.enable("trust proxy");
-
-var corsOptions = {
-  origin: "*",
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "https://todolistfe-seven.vercel.app", // Replace with your frontend URL
+    credentials: true,
+  })
+);
 
 app.use(
   session({
