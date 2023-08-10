@@ -4,20 +4,23 @@
     "password": "8NHyFFT8n1F8hl9n0b8eMOLKE0G__vqY",
     "database": "bsfbzbit",
     "host": "rosie.db.elephantsql.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectModule": "pg"
   },
   "test": {
     "username": "bsfbzbit",
     "password": "8NHyFFT8n1F8hl9n0b8eMOLKE0G__vqY",
     "database": "bsfbzbit",
     "host": "rosie.db.elephantsql.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectModule": "pg"
   },
   "production": {
     "username": "bsfbzbit",
     "password": "8NHyFFT8n1F8hl9n0b8eMOLKE0G__vqY",
     "database": "bsfbzbit",
     "host": "rosie.db.elephantsql.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectModule": "pg"
   }
 }
