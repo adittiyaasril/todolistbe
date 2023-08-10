@@ -7,7 +7,7 @@ const cors = require("cors");
 const app = express();
 app.use(
   cors({
-    origin: "https://todolistbe.vercel.app", // Replace with your frontend URL
+    origin: "https://todolistfe-seven.vercel.app", // Replace with your frontend URL
     credentials: true,
   })
 );
