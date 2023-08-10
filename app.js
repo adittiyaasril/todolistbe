@@ -14,9 +14,16 @@ app.use(
 
 app.use(
   session({
+    store: store,
     secret: process.env.SESSION_TOKEN_SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
+    proxy: true,
+    cookie: {
+      secure: true,
+      maxAge: 1000 * 60 * 60 * 48,
+      sameSite: "none",
+    },
   })
 );
 
