@@ -7,13 +7,13 @@ const cors = require("cors");
 const app = express();
 
 const allowedOrigins = [
-  'https://todolistfe-seven.vercel.app',
-  'http://localhost:3000', 
+  "https://todolistfe-seven.vercel.app",
+  "http://localhost:3000",
 ];
 
 app.use(
   cors({
-    origin: allowedOrigins,,
+    origin: allowedOrigins,
     credentials: true,
   })
 );
