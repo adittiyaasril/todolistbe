@@ -5,15 +5,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
-
-const allowedOrigins = [
-  "https://todolistfe-seven.vercel.app",
-  "http://localhost:3000",
-];
-
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: "https://todolistfe-seven.vercel.app",
     credentials: true,
   })
 );
@@ -29,13 +23,10 @@ app.use(
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const db = require("./models");
-db.client.sync();
-
 const router = require("./routes");
 app.use(router);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
