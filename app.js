@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 const router = require("./routes");
 app.use(router);
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
