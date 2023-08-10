@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const session = require("express-session");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -9,21 +8,6 @@ app.use(
   cors({
     origin: "https://todolistfe-seven.vercel.app", // Replace with your frontend URL
     credentials: true,
-  })
-);
-
-app.use(
-  session({
-    store: store,
-    secret: process.env.SESSION_TOKEN_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    proxy: true,
-    cookie: {
-      secure: true,
-      maxAge: 1000 * 60 * 60 * 48,
-      sameSite: "none",
-    },
   })
 );
 
