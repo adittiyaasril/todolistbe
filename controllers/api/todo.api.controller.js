@@ -1,4 +1,5 @@
-const { Todolist } = require("../../models");
+const db = require("../../models");
+const Todolist = db.todolists;
 
 module.exports = {
   create: async (req, res) => {

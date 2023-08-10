@@ -23,6 +23,9 @@ app.use(
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const db = require("./models");
+db.client.sync();
+
 const router = require("./routes");
 app.use(router);
 
