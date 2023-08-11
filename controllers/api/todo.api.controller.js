@@ -6,13 +6,15 @@ module.exports = {
   create: async (req, res) => {
     try {
       const { item } = req.body;
-      const token = req.header("x-auth-token");
+      const token = req.header("Authorization");
 
-      if (!token) {
+      if (!token || !token.startsWith("Bearer ")) {
         return res.status(401).json({ msg: "Unauthorized" });
       }
 
-      jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
+      const authToken = token.split(" ")[1];
+
+      jwt.verify(authToken, process.env.JWT_SECRET, async (err, decoded) => {
         if (err) {
           return res.status(401).json({ msg: "Invalid token" });
         }
@@ -35,13 +37,15 @@ module.exports = {
   delete: async (req, res) => {
     try {
       const todoId = req.params.id;
-      const token = req.header("x-auth-token");
+      const token = req.header("Authorization");
 
-      if (!token) {
+      if (!token || !token.startsWith("Bearer ")) {
         return res.status(401).json({ msg: "Unauthorized" });
       }
 
-      jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
+      const authToken = token.split(" ")[1];
+
+      jwt.verify(authToken, process.env.JWT_SECRET, async (err, decoded) => {
         if (err) {
           return res.status(401).json({ msg: "Invalid token" });
         }
@@ -68,13 +72,15 @@ module.exports = {
 
   show: async (req, res) => {
     try {
-      const token = req.header("x-auth-token");
+      const token = req.header("Authorization");
 
-      if (!token) {
+      if (!token || !token.startsWith("Bearer ")) {
         return res.status(401).json({ msg: "Unauthorized" });
       }
 
-      jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
+      const authToken = token.split(" ")[1];
+
+      jwt.verify(authToken, process.env.JWT_SECRET, async (err, decoded) => {
         if (err) {
           return res.status(401).json({ msg: "Invalid token" });
         }
