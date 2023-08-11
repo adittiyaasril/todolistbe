@@ -89,11 +89,13 @@ module.exports = {
 
   profile: async (req, res) => {
     try {
-      const token = req.header("x-auth-token");
+      const authHeader = req.header("Authorization");
 
-      if (!token) {
+      if (!authHeader || !authHeader.startsWith("Bearer ")) {
         return res.status(401).json({ msg: "Token not found" });
       }
+
+      const token = authHeader.split(" ")[1];
 
       jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
         if (err) {
