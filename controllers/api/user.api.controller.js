@@ -66,7 +66,7 @@ module.exports = {
   },
   check: async (req, res) => {
     try {
-      const token = req.header("x-auth-token");
+      const token = req.header("Authorization");
       console.log(token);
 
       if (!token) {
@@ -88,7 +88,7 @@ module.exports = {
 
   profile: async (req, res) => {
     try {
-      const token = req.header("x-auth-token");
+      const token = req.header("Authorization");
 
       if (!token) {
         return res.status(401).json({ msg: "Token not found" });
