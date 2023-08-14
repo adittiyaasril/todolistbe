@@ -14,7 +14,7 @@ You need to install Node.js, NPM, PostgreSql And Database Client (pgadmin4, dbea
 - Open Directory using hyper, ubuntu, git bash, or terminal
 - Install package with Run `npm i`
 - Run server with `npm start` or `npm run dev`
-- Open **http://localhost:3000** in your browser
+- Open **http://localhost:8000** in your browser
 - Open Postman or other REST client and try API function like Login, Register, Add, Delete, etc
 
 #### Frontend Repository
